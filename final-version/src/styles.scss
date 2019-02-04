@@ -1,0 +1,48 @@
+$bg-color: black;
+$text-color: rgb(50, 252, 50);
+$text-color-em: rgb(171, 250, 171);
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: monospace;
+  // background-image: url(assets/images/image.jpg);
+}
+
+h1 {
+  font-size: 3em;
+}
+
+img {
+  width: 510px;
+  transition: all 0.3s ease;
+
+  &.flip{
+    transform: rotate(180deg);
+  }
+
+  &:hover{
+    width: 560px;
+  } 
+}
+
+a {
+  font-size: 1.5em;
+  text-decoration: none;
+
+  &:visited {
+    text-decoration: none;
+    color: $text-color;
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    color: $text-color-em;
+  }
+
+  &:focus {
+    text-decoration: none;
+    color: $text-color;
+  }
+}
