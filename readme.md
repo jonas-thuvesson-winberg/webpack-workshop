@@ -26,7 +26,8 @@ Feel free to skip any step you have already completed.
 2. move to a folder where you want to keep the code.
 2. run `git clone https://github.com/jonas-thuvesson-winberg/webpack-workshop.git`. You should now have a new folder called *webpack-workshop*, with the code inside.
 
-## Part 1 - Creating a build
+
+[1 - Bundling JavaScript](.%2F1%20-%20bundling%20javascript%2F1_-_bundling_javascript.md)
 
 
 
