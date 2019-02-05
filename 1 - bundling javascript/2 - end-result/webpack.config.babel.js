@@ -1,22 +1,13 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, 'src', 'index'),
+  entry: path.resolve(__dirname, 'src', 'index'),
   output: {
-    filename: 'bundle.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
   },
-  plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: 'src',
-        to: '',
-        ignore: ['*.js', '*.scss']
-      }
-    ])
-  ],
+  plugins: [],
   module: {
     rules: [
       {
@@ -25,7 +16,9 @@ module.exports = {
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader',
         query: {
-          presets: ['@babel/preset-env']
+          presets: [
+            '@babel/preset-env'
+          ]
         }
       }
     ]
