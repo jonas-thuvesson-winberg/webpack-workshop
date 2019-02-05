@@ -1,6 +1,6 @@
 # Instructions
 
-## Installing dependencies
+## Installing dependencies and getting sample code
 Feel free to skip any step you have already completed.
 
 ### Node.js and NPM
@@ -20,6 +20,14 @@ Feel free to skip any step you have already completed.
 1. Go to https://code.visualstudio.com/#alt-downloads and choose and download the right version for your system. 
 2. Install.
 3. You should now have *Visual Studio Code* in your system menu. You can also use "`code .`" in a console window to open the current location in VS Code.
+
+### Download this repo
+1. Open a console window.
+2. move to a folder where you want to keep the code.
+2. run `git clone https://github.com/jonas-thuvesson-winberg/webpack-workshop.git`. You should now have a new folder called *webpack-workshop*, with the code inside.
+
+## Part 1 - Creating a build
+
 
 
 
