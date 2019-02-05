@@ -11,10 +11,9 @@
 
 # Instructions
 
-| Todo                                                                 | Doing                                                    | Done                   |
-| -------------------------------------------------------------------- | -------------------------------------------------------- | ---------------------- |
-| **Lesson 1**: compiling javascript                                   | **Final Version**: everything else will be based on this | Installation and setup |
-| **Lesson 1**: compiling javascript                                   |
+| Todo                                                                 | Doing                  | Done |
+| -------------------------------------------------------------------- | ---------------------- | ---- |
+| **Lesson 1**: compiling javascript                                   | Installation and setup |
 | **Lesson 2**: building html output                                   |
 | **Lesson 3**: adding styling through SASS preprocessing              |
 | **Lesson 4**: adding tree shaking (only using referenced code)       |
