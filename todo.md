@@ -2,7 +2,7 @@
 
 | Todo                                                                | Doing                              | Done                                                     |
 | ------------------------------------------------------------------- | ---------------------------------- | -------------------------------------------------------- |
-| **Lesson 1**: compiling javascript                                  | **Lesson 1**: compiling javascript | Set up project                                           |
+|                                                                     | **Lesson 1**: compiling javascript | Set up project                                           |
 | **Lesson 2**: building html output                                  |                                    | **Final Version**: everything else will be based on this |
 | **Lesson 3**: adding styling through SASS preprocessing             |
 | **Lesson 4**: adding tree shaking (only using referenced code)      |
