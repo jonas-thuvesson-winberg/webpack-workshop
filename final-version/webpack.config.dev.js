@@ -20,7 +20,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
   devServer: {
     before: function(_, server) {
-      chokidar.watch(['./src/*.html', './src/*.scss']).on('all', function() {
+      chokidar.watch(['./src/*.html']).on('all', function() {
         server.sockWrite(server.sockets, 'content-changed');
       });
     },
