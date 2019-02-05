@@ -18,9 +18,7 @@ module.exports = merge(common, {
       {
         test: /\.scss$/,
         include: [path.resolve(__dirname, 'src')],
-        exclude: [
-          path.resolve(__dirname, 'node_modules'),
-        ],
+        exclude: [path.resolve(__dirname, 'node_modules')],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
