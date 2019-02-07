@@ -1,6 +1,5 @@
 [Go back]: ../readme.md
 
-
 [Go back]
 
 ## Part 1 - Creating a build
@@ -16,8 +15,15 @@ In Webpack everything revolves around bundling JavaScript code into a package. W
 Webpack uses configuration files that are, in themself, JavaScript files. We have one configuration file for Webpack in this project called `webpack.config.js`. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry), and how the javascript should be packaged using a [loader](https://webpack.js.org/concepts/#loaders).
 
 1. Open up `webpack.config.js`.
-2. under entry, put 
-[...]
+2. Under `entry`, put `path.combine(__dirname, 'src', 'index')`. This uses Node's [`path`](https://nodejs.org/api/path.html) module to look for __/src/index/__ in the application's root folder. 
+3. The [output](https://webpack.js.org/configuration/output/) node takes a configuration object. We will use the [filename](https://webpack.js.org/configuration/output/#output-filename) and [path](https://webpack.js.org/configuration/output/#output-path) options in this example. Write `filename: 'main.js'` inside curly brackets (`{}`). This is the name of the JavaScript bundle that is the result of the packaging process. You also should provide the output path by writing `path: path.resolve(__dirname, 'dist')`.
+In the end you should have something like this:
+```
+output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist')
+}
+```
 
 blabla Babel for more info on the options used to configure the babel loader see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
