@@ -1,1 +1,2 @@
-console.log('There be JavaScript!');
+const writeMessage = () => console.log('There be JavaScript!');
+writeMessage();

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src', 'index'),
+  entry: path.combine(__dirname, 'src', 'index'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
@@ -16,9 +16,7 @@ module.exports = {
         exclude: [path.resolve(__dirname, 'node_modules')],
         loader: 'babel-loader',
         query: {
-          presets: [
-            '@babel/preset-env'
-          ]
+          presets: ['@babel/preset-env']
         }
       }
     ]

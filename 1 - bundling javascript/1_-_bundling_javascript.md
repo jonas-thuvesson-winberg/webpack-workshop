@@ -28,7 +28,7 @@ output: {
 4. If you run the code now using `npm run build`, you should see a file *main.js* in __*/dist/*__.
 
 #### Adding Babel for better browser support
-Babel is a tool for compiling (or transpiling) modern JavaScript into a format compatible with different browsers and browser versions. 
+Babel is a tool for compiling (or transpiling) modern JavaScript into a format compatible with different browsers and browser versions. When 
 
 
 ...

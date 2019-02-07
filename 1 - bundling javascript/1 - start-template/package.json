@@ -2,7 +2,7 @@
   "name": "webpack-workshop",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.common.js",
+  "main": "webpack.config.js",
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
@@ -27,8 +27,7 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline --config webpack.config.dev.js",
-    "build": "webpack --config webpack.config.prod.js"
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
