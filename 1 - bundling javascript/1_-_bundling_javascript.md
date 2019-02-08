@@ -42,7 +42,7 @@ Babel is a tool for compiling (or transpiling) modern JavaScript into a format c
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "retry",
+        "useBuiltIns": "entry",
         "modules": false,
         "debug": true
       }
