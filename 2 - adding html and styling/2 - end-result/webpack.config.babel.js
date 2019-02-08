@@ -26,7 +26,7 @@ const plugins = [
 ].concat(htmlPluginInstances);
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, 'src', 'index'),
   output: {
     filename: 'main.js',
