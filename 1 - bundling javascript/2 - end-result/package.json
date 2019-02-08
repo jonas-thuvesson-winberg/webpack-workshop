@@ -2,7 +2,7 @@
   "name": "webpack-workshop",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.common.js",
+  "main": "webpack.config.js",
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
@@ -27,7 +27,7 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.babel.js"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",

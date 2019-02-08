@@ -1,8 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'development',
-  entry: path.combine(__dirname, 'src', 'index'),
+  mode: 'production',
+  entry: path.join(__dirname, 'src', 'index'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
