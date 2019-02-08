@@ -74,7 +74,7 @@ import "core-js/modules/es7.string.pad-start";
 import "core-js/modules/es7.string.pad-end";
 ```
 
-For more info on the options used to configure the Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
+For more info on the options used to configure Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
 3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_, to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
 
