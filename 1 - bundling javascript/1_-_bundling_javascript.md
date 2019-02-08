@@ -17,7 +17,7 @@ In Webpack everything revolves around bundling JavaScript code into a package. W
 Webpack uses configuration files that are, in themself, JavaScript files. We have one configuration file for Webpack in this project called `webpack.config.js`. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry), and how the javascript should be packaged using a [loader](https://webpack.js.org/concepts/#loaders).
 
 1. Open up `webpack.config.js`.
-2. Under `entry`, put `path.join(__dirname, 'src', 'index')`. This uses Node's [`path`](https://nodejs.org/api/path.html) module to look for **/src/index/** in the application's root folder.
+2. Under `entry`, put `path.join(__dirname, 'src', 'index')`. This uses Node's [path](https://nodejs.org/api/path.html) module to look for **/src/index/** in the application's root folder.
 3. The [output](https://webpack.js.org/configuration/output/) node takes a configuration object. We will use the [filename](https://webpack.js.org/configuration/output/#output-filename) and [path](https://webpack.js.org/configuration/output/#output-path) options in this example. Write `filename: 'main.js'` inside curly brackets (`{}`). This is the name of the JavaScript bundle that is the result of the packaging process. You also should provide the output path by writing `path: path.resolve(__dirname, 'dist')`. This resolves the absolute path to dist. You can read more [here](https://webpack.js.org/configuration/output/#output-path).
    In the end you should have something like this:
 
@@ -34,7 +34,7 @@ output: {
 
 Babel is a tool for compiling (or transpiling) modern JavaScript into a format compatible with different browsers and browser versions. Webpack has a loader that leverages the power of Babel.
 
-1. Babel can be configured i different ways. We are going to use a separete config file. Add a new file, _.babelrc_, to the root of the project (**_1 - start-template_**). Open it and put in the following code:
+1. Babel can be configured in different ways. We are going to use a separate config file. Add a new file, _.babelrc_, to the root of the project (**_1 - start-template_**). Open it and put in the following code:
 
 ```
 {
@@ -64,7 +64,7 @@ Babel uses a combination of plugins (transforms JavaScript) and polyfills (injec
 For this to work we also need to add the following import to the top of our __index.js__ file:
 `import '@babel/polyfill';`
 
-Since we use `entry` this will be transformed like this:
+Since we use `entry` this will be transformed like this (example):
 ```
 import "@babel/polyfill";
 ```
@@ -76,7 +76,7 @@ import "core-js/modules/es7.string.pad-end";
 
 For more info on the options used to configure the Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
-3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools) which browsers you want to include support for. Add another file, _.browserslistrc_, to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
+3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_, to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
 
 Add the following lines to the file:
 
@@ -88,7 +88,7 @@ firefox > 1
 opera > 1
 ```
 
-This list is unrealistically inclusive; we want to support relevant browsers above version 1.
+This list is unrealistically inclusive, since we aim to support all browser versions above version 1.
 You can read more about [the browserlist project here](https://github.com/browserslist/browserslist).
 
 3. For all this to take effect we need to add a new entry in the `rules` node under `plugins`, in the **webpack.config.js** file:
@@ -175,7 +175,7 @@ Entrypoint main = main.js
 ```
 
 5. Open the **_dist_** folder and open __main.js__.
-The code is transformed (and minified to save space); you will see that the code is unrecognizable (and a lot bigger due to all compatibility code).
+The code is transformed (and minified to save space); you will see that the code is unrecognizable (and a lot bigger due to all compatibility code). You can use ctrl + shift + F (in VS Code) to format (and "unminify") the code, to better be able to read it.
 
 As you can see Babel (and Webpack) enables us to write nice modern JavaScript, and then compile it for the browsers we need to support. 
 

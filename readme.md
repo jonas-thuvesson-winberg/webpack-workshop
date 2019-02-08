@@ -29,6 +29,8 @@ Feel free to skip any step you have already completed.
 ## Workshop steps
 [1 - Bundling JavaScript](.%2F1%20-%20bundling%20javascript%2F1_-_bundling_javascript.md)
 
+[2 - adding HTML and styling](.%2F2%20-%20adding%20html%20and%20styling%2F2_-_adding_html_and_styling.md)
+
 
 
 
