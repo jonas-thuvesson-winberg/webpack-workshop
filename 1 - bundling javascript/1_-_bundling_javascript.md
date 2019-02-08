@@ -42,7 +42,7 @@ Babel is a tool for compiling (or transpiling) modern JavaScript into a format c
     [
       "@babel/preset-env",
       {
-        "useBuiltIns": "usage",
+        "useBuiltIns": "retry",
         "modules": false,
         "debug": true
       }
@@ -55,11 +55,24 @@ The [preset-env](https://babeljs.io/docs/en/babel-preset-env) is a general (smar
 
 Babel uses a combination of plugins (transforms JavaScript) and polyfills (injected code to allow for a missing browser feature).
 
-`"useBuiltIns": "usage"` tells Babel to add plugins and polyfills based on the usage in each file. Read about [polyfills](<https://en.wikipedia.org/wiki/Polyfill_(programming)>) here, and about [useBuiltIns here](https://babeljs.io/docs/en/babel-preset-env#usebuiltins).
+`"useBuiltIns": "entry"` tells Babel to replace the general purpose Babel polyfill with the required polyfills based on environment. Read about [polyfills](<https://en.wikipedia.org/wiki/Polyfill_(programming)>) here, and about [useBuiltIns here](https://babeljs.io/docs/en/babel-preset-env#usebuiltins).
 
 `"modules": false` tells Babel to not transform [ES2015 (or ES6) module format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to another module format. In this case we don't want this transformation, since we want Webpack to be able to perform tree shaking (more on this later). Webpack does this based on unused imports (`import <entity> from 'mymodule'`). It then handles the transformation of these modules itself. Hence we don't want (or need) Babel to do this task. If you would use Babel on it's own it would be a different story.
 
 `"debug": true` tells Babel to output the exact plugins it ends up using in the compilation process of your code. This requires an extra step of Webpack though, as we will see soon.
+
+For this to work we also need to add the following import to the top of our __index.js__ file:
+`import '@babel/polyfill';`
+
+Since we use `entry` this will be transformed like this:
+```
+import "@babel/polyfill";
+```
+to (will differ based on environment)
+```
+import "core-js/modules/es7.string.pad-start";
+import "core-js/modules/es7.string.pad-end";
+```
 
 For more info on the options used to configure the Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
@@ -68,12 +81,14 @@ For more info on the options used to configure the Babel, see [this link](https:
 Add the following lines to the file:
 
 ```
-> 5% in SE
-not ie <= 10
+safari > 1
+ie > 1
+chrome > 1
+firefox > 1
+opera > 1
 ```
 
-The first line says that we want to support browsers used by more than 5% of the users in Sweden. The second line says that we don't care about Internet Explorer older than 11.
-
+This list is unrealistically inclusive; we want to support relevant browsers above version 1.
 You can read more about [the browserlist project here](https://github.com/browserslist/browserslist).
 
 3. For all this to take effect we need to add a new entry in the `rules` node under `plugins`, in the **webpack.config.js** file:
@@ -92,34 +107,15 @@ You can read more about [the browserlist project here](https://github.com/browse
 
 We want to transform and bundle the files in our _src_ directory, but not the _node_modules_ directory. Of course, referenced code from _node_modules_ will be included in the final bundle.
 
-4. We can now run our build by typing `npm run build-dev` in the terminal. This command is defined in the _package.json_ file, which in turn calls webpack with the development mode flag.
+4. We can now run our build by typing `npm run build` in the terminal. This command is defined in the _package.json_ file, which in turn calls webpack.
 
 You should see something similar to this:
 
 ```
-λ  npm run build-dev
+λ  npm run build
 
-> webpack-workshop@1.0.0 build-dev C:\Programming\JavaScript\webpack-workshop\1 - bundling javascript\1 - start-template
-> webpack --mode development
-
-Hash: 859897d56f37a9c9fd5b
-Version: webpack 4.29.3
-Time: 85ms
-Built at: 02/08/2019 3:35:34 PM
-  Asset      Size  Chunks             Chunk Names
-main.js  4.13 KiB    main  [emitted]  main
-Entrypoint main = main.js
-[./src/index.js] 345 bytes {main} [built]
-```
-
-This is to easier debug code in development, and Notice that we don't get the debug information from Babel. For this to work we need to rename our webpack config file to _webpack.config.babel.js_. You also need to change the NPM build script in _package.json_ from ` "build": "webpack --config webpack.config.js"``to `"build": "webpack --config webpack.config.babel.js"`. After doing this, run`npm run build-dev` once again.
-Now your output will be different:
-
-```
-λ  npm run build-dev
-
-> webpack-workshop@1.0.0 build-dev C:\Programming\JavaScript\webpack-workshop\1 - bundling javascript\1 - start-template
-> webpack --mode development
+> webpack-workshop@1.0.0 build C:\Programming\JavaScript\webpack-workshop\1 - bundling javascript\2 - end-result
+> webpack
 
 @babel/preset-env: `DEBUG` option
 
@@ -165,105 +161,22 @@ Using plugins:
   proposal-optional-catch-binding { "chrome":"4", "firefox":"2", "ie":"5.5", "opera":"9", "safari":"3.1" }
   transform-named-capturing-groups-regex { "chrome":"4", "firefox":"2", "ie":"5.5", "opera":"9", "safari":"3.1" }
 
-Using polyfills with `usage` option:
-Hash: 3e32a9f4778f2785f221
-Version: webpack 4.29.3
-Time: 88ms
-Built at: 02/08/2019 3:20:50 PM
-      Asset      Size  Chunks             Chunk Names
-    main.js  4.09 KiB    main  [emitted]  main
-main.js.map  3.99 KiB    main  [emitted]  main
-Entrypoint main = main.js main.js.map
-[./src/index.js] 345 bytes {main} [built]
+Using polyfills with `entry` option:
+Hash: f7e54fd8bca85d221f41
+Version: webpack 4.29.1
+Time: 791ms
+Built at: 02/08/2019 4:40:36 PM
+  Asset      Size  Chunks             Chunk Names
+main.js  82.4 KiB       0  [emitted]  main
+Entrypoint main = main.js
+[115] ./src/index.js 384 bytes {0} [built]
+[117] (webpack)/buildin/global.js 472 bytes {0} [built]
+    + 280 hidden modules
 ```
 
-5. Open the **_dist_** folder and open __index.html__ in Google Chrome.
-6. Open the dev tool with F12, and go to the console. You should see some print outs:
-```
-There be JavaScript!                  index.js:11 1
-index.js:6 true starts with "hej"     index.js:11 2
-index.js:6 false starts with "hej"    index.js:11 2
-index.js:6 true starts with "hej"     index.js:11 3
-```
+5. Open the **_dist_** folder and open __main.js__.
+The code is transformed (and minified to save space); you will see that the code is unrecognizable (and a lot bigger due to all compatibility code).
 
-Click on one of the references to index.js (e.g. index.js:11 1). You should see the code like this:
-```
-const writeMessage = () => console.log('There be JavaScript!');
-writeMessage();
-
-let myArr = ['hejhopp', 'foo', 'hejbar'];
-let filtered = myArr.map(item => item.startsWith('hej'));
-filtered.forEach(item => console.log(`${item} starts with "hej"`));
-```
-Notice that the JavaScript is not transformed. 
-
-7. Go back to the terminal and run the command `npm run build` instead. This is also defined in __package.json__, and uses the mode production instead.
-
-8. Go back to chrome and refresh the page (or repeat step 5 if you closed the window). Once again click on one of the references from the console logs. This time the code is transformed (and minified to save space). This makes it a bit hard to read, but if you would copy the code and format it in an editor you would get:
-```
-!(function(e) {
-  var t = {};
-  function r(n) {
-    if (t[n]) return t[n].exports;
-    var o = (t[n] = { i: n, l: !1, exports: {} });
-    return e[n].call(o.exports, o, o.exports, r), (o.l = !0), o.exports;
-  }
-  (r.m = e),
-    (r.c = t),
-    (r.d = function(e, t, n) {
-      r.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
-    }),
-    (r.r = function(e) {
-      'undefined' != typeof Symbol &&
-        Symbol.toStringTag &&
-        Object.defineProperty(e, Symbol.toStringTag, { value: 'Module' }),
-        Object.defineProperty(e, '__esModule', { value: !0 });
-    }),
-    (r.t = function(e, t) {
-      if ((1 & t && (e = r(e)), 8 & t)) return e;
-      if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
-      var n = Object.create(null);
-      if (
-        (r.r(n),
-        Object.defineProperty(n, 'default', { enumerable: !0, value: e }),
-        2 & t && 'string' != typeof e)
-      )
-        for (var o in e)
-          r.d(
-            n,
-            o,
-            function(t) {
-              return e[t];
-            }.bind(null, o)
-          );
-      return n;
-    }),
-    (r.n = function(e) {
-      var t =
-        e && e.__esModule
-          ? function() {
-              return e.default;
-            }
-          : function() {
-              return e;
-            };
-      return r.d(t, 'a', t), t;
-    }),
-    (r.o = function(e, t) {
-      return Object.prototype.hasOwnProperty.call(e, t);
-    }),
-    (r.p = ''),
-    r((r.s = 0));
-})([
-  function(e, t) {
-    (() => console.log('There be JavaScript!'))();
-    ['hejhopp', 'foo', 'hejbar']
-      .map(e => e.startsWith('hej'))
-      .forEach(e => console.log(`${e} starts with "hej"`));
-  }
-]);
-```
-
-As you can see Babel (and Webpack) enables us to write nice modern JavaScript, and then compile it for the browsers we need to support.
+As you can see Babel (and Webpack) enables us to write nice modern JavaScript, and then compile it for the browsers we need to support. 
 
 [Go back]
