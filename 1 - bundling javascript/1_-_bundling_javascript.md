@@ -57,7 +57,7 @@ Babel uses a combination of plugins (transforms JavaScript) and polyfills (injec
 
 `"useBuiltIns": "entry"` tells Babel to replace the general purpose Babel polyfill with the required polyfills based on environment. Read about [polyfills](<https://en.wikipedia.org/wiki/Polyfill_(programming)>) here, and about [useBuiltIns here](https://babeljs.io/docs/en/babel-preset-env#usebuiltins).
 
-`"modules": false` tells Babel to not transform [ES2015 (or ES6) module format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to another module format. In this case we don't want this transformation, since we want Webpack to be able to perform tree shaking (more on this later). Webpack does this based on unused imports (`import <entity> from 'mymodule'`). It then handles the transformation of these modules itself. Hence we don't want (or need) Babel to do this task. If you would use Babel on it's own it would be a different story.
+`"modules": false` tells Babel to not transform [ES2015 (or ES6) modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to another module format. In this case we don't want this transformation, since we want Webpack to be able to perform tree shaking (more on this later). Webpack does this based on unused imports (`import <entity> from 'mymodule'`). It then handles the transformation of these modules itself. Hence we don't want (or need) Babel to do this task. If you would use Babel on it's own it would be a different story.
 
 `"debug": true` tells Babel to output the exact plugins it ends up using in the compilation process of your code. This requires an extra step of Webpack though, as we will see soon.
 
