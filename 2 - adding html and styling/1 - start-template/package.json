@@ -4,9 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "sideEffects": false,
-  "dependencies": {
-    "lodash.template": "^4.4.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.2.5",

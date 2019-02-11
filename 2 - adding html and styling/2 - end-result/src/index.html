@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Webpack App</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href='<%= htmlWebpackPlugin.files.css %>' rel="stylesheet"></head>
   </head>
   <body>
     <div class="container">
       <h1>Hello index body!</h1>
       <br />
-      <img src="./assets/images/image.jpg" />
-      <div id="placeholder"></div>
+      <a href="other.html"><img src='<%=require('./assets/images/troll.jpg')%>' /></a>
       <br />
-      <a href="other.html">link to other</a>
     </div>
+    <script src='<%= htmlWebpackPlugin.files.js %>'></script>
   </body>
 </html>

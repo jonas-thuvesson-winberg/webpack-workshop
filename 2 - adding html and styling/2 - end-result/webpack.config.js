@@ -5,10 +5,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const createHtmlPluginInstance = fileName => {
   return new HtmlWebpackPlugin({
+    title: 'whhaaaat',
+    inject: false,
     template: path.join(__dirname, 'src', fileName),
     chunks: path.join(__dirname, 'src', fileName),
     filename: fileName,
-    hash: true
+    files: {
+      css: ['styles.[hash].css'],
+      js: ['bundle.[hash].js']
+    }
   });
 };
 
@@ -21,15 +26,15 @@ const htmlPluginInstances = htmlFiles.map(item =>
 const plugins = [
   new CleanWebpackPlugin(['dist']),
   new MiniCssExtractPlugin({
-    filename: '[name].css'
+    filename: 'styles.[hash].css'
   })
 ].concat(htmlPluginInstances);
 
 module.exports = {
-  mode: 'production',
-  entry: path.join(__dirname, 'src', 'index'),
+  mode: 'development',
+  entry: path.join(__dirname, 'src', 'main'),
   output: {
-    filename: 'main.js',
+    filename: 'bundle.[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: plugins,
@@ -54,10 +59,10 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.html$/,
-        use: ['html-loader']
-      },
+      // {
+      //   test: /\.html$/,
+      //   use: ['html-loader']
+      // },
       {
         test: /\.js$/,
         include: [path.resolve(__dirname, 'src')],
