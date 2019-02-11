@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "dependencies": {
     "lodash.template": "^4.4.0"
   },

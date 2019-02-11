@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.2",

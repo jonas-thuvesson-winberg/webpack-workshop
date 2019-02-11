@@ -1,37 +1,22 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const generateHtmlPluginSetup = require('./generateHtmlPluginSetup');
 
-const createHtmlPluginInstance = fileName => {
-  return new HtmlWebpackPlugin({
-    title: 'whhaaaat',
-    inject: false,
-    template: path.join(__dirname, 'src', fileName),
-    chunks: path.join(__dirname, 'src', fileName),
-    filename: fileName,
-    files: {
-      css: ['styles.[hash].css'],
-      js: ['bundle.[hash].js']
-    }
-  });
-};
-
+console.log('here');
 const htmlFiles = ['index.html', 'other.html'];
-
-const htmlPluginInstances = htmlFiles.map(item =>
-  createHtmlPluginInstance(item)
-);
+const htmlPluginInstances = generateHtmlPluginSetup(htmlFiles);
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
   new MiniCssExtractPlugin({
     filename: 'styles.[hash].css'
   })
-].concat(htmlPluginInstances);
+]
+.concat(htmlPluginInstances);
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, 'src', 'main'),
   output: {
     filename: 'bundle.[hash].js',
@@ -59,10 +44,10 @@ module.exports = {
           }
         ]
       },
-      // {
-      //   test: /\.html$/,
-      //   use: ['html-loader']
-      // },
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      },
       {
         test: /\.js$/,
         include: [path.resolve(__dirname, 'src')],

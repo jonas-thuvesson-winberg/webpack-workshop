@@ -1,9 +1,20 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const generateHtmlPluginSetup = require('./generateHtmlPluginSetup');
+
+const htmlFiles = ['index.html', 'other.html'];
+const htmlPluginInstances = generateHtmlPluginSetup(htmlFiles);
+
+const plugins = [
+  new CleanWebpackPlugin(['dist']),
+  new MiniCssExtractPlugin({
+    filename: 'styles.[hash].css'
+  })
+].concat(htmlPluginInstances);
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, 'src', 'main'),
   output: {
     filename: 'bundle.[hash].js',
@@ -31,6 +42,23 @@ module.exports = {
         include: [path.resolve(__dirname, 'src')],
         exclude: [path.resolve(__dirname, 'node_modules')],
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img/'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader']
       }
     ]
   }
