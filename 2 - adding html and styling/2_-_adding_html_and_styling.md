@@ -76,7 +76,7 @@ clean-webpack-plugin: C:\Programming\JavaScript\webpack-workshop\2 - adding html
 ### Adding resources: CSS and images
 
 1. Open up the file _webpack.config.js_ once more.
-2. Add the following to the import part at the top:
+2. Add the following to the import section at the top:
 
 ```
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
