@@ -122,15 +122,12 @@ First we have the handling for SCSS files. `use` is read from right to left, and
 
 We then have the image handling. This entry tells Webpack to make images available to our JavaScript by turning them into modules (using the `file-loader`). It also renames the files and adds a hash, to prevent caching (as previously discussed). We have also declared that the images should end up in a different relative output directory.
 
-4. To be able to use the static resources however, we need to reference them in out **_entry point_**. Open up _main.js_ and add the following import statement:
+4. To be able to use the static resources however, we need to reference them in out **_entry point_**. Open up _main.js_ and add the following import statements:
 
 ```
 import './styles.scss';
-import trollImg from './assets/images/troll.jpg';
 import catImg from './assets/images/cat.jpg';
 ```
-
-Also note the `import catImg from './assets/images/cat.jpg';` entry. The file-loader will help us with resolving the reference to `catImg` at compile/build time. Right now we don't have any HTML though (hence the `if` guard), so we won't insert it.
 
 5. It should also be noted that webpack uses something called _tree shaking_ in production mode, which will remove everything that is not referenced in CSS and JavaScript files (more about this in a later lesson).
 
@@ -208,7 +205,7 @@ plugins: plugins
 
 4. Now run `npm run build`.
 
-If you open up the _dist_ folder in the file system, you should now be able to open _index.html_ in a browser. The images work as links. The
+If you open up the _dist_ folder in the file system, you should now be able to open _index.html_ in a browser. The images work as links. The troll image is used in HTML and resolved by the `html-loader`, and the cat image is added dynamically through JavaScript, and resolved by the `file-loader`. (You can compare _index.html_ in _src_ and in _dist_)
 
 ---
 
