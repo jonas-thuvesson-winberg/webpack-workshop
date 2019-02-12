@@ -5,7 +5,7 @@
 ## Part 1 - Creating a build
 
 1. Move to the folder **_1 - start-template_**.
-2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. Note\*\*: All the required packages have been added in advance for this workshop for convinience's sake, by using `npm install --save-dev <package-name>`.
+2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. __Note__: All the required packages have been added in advance for this workshop for convinience's sake, by using `npm install --save <package-name>`.
 3. Open up the folder in _VS Code_ using "`code .`" (note that you also can do "`code </path/to/folder>`").
 
 ### Adding JavaScript Bundling
@@ -17,8 +17,8 @@ In Webpack everything revolves around bundling JavaScript code into a package. W
 Webpack uses configuration files that are, in themself, JavaScript files. We have one configuration file for Webpack in this project called `webpack.config.js`. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry), and how the javascript should be packaged using a [loader](https://webpack.js.org/concepts/#loaders).
 
 1. Open up `webpack.config.js`.
-2. Under `entry`, put `path.join(__dirname, 'src', 'main')`. This uses Node's [path](https://nodejs.org/api/path.html) module to look for **/src/main** (JavaScript module) in the application's root folder.
-3. The [output](https://webpack.js.org/configuration/output/) node takes a configuration object. We will use the [filename](https://webpack.js.org/configuration/output/#output-filename) and [path](https://webpack.js.org/configuration/output/#output-path) options in this example. Write `filename: 'bundle.js'` inside curly brackets (`{}`). This is the name of the JavaScript bundle that is the result of the packaging process. You also should provide the output path by writing `path: path.resolve(__dirname, 'dist')`. This resolves the absolute path to dist. You can read more [here](https://webpack.js.org/configuration/output/#output-path).
+2. Under `entry`, replace the empty entry with `path.join(__dirname, 'src', 'main')`. This uses Node's [path](https://nodejs.org/api/path.html) module to look for **/src/main** (JavaScript module) in the application's root folder.
+3. The [output](https://webpack.js.org/configuration/output/) node takes a configuration object. We will use the [filename](https://webpack.js.org/configuration/output/#output-filename) and [path](https://webpack.js.org/configuration/output/#output-path) options in this example. Write `filename: 'bundle.js'` inside the placeholder curly brackets (`{}`). This is the name of the JavaScript bundle that is the result of the packaging process. You also should provide the output path by writing `path: path.resolve(__dirname, 'dist')`. This resolves the absolute path to dist. You can read more [here](https://webpack.js.org/configuration/output/#output-path).
    In the end you should have something like this:
 
 ```
@@ -34,7 +34,7 @@ output: {
 
 Babel is a tool for compiling (or transpiling) modern JavaScript into a format compatible with different browsers and browser versions. Webpack has a loader that leverages the power of Babel.
 
-1. Babel can be configured in different ways. We are going to use a separate config file. Add a new file, _.babelrc_, to the root of the project (**_1 - start-template_**). Open it and put in the following code:
+1. Babel can be configured in different ways. We are going to use a separate config file. Add a new file, _.babelrc_ (__note the dot in the beginning of the file__), to the root of the project (**_1 - start-template_**). Open it and put in the following code:
 
 ```
 {
@@ -76,7 +76,7 @@ import "core-js/modules/es7.string.pad-end";
 
 For more info on the options used to configure Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
-3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_, to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
+3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_ (__again, note the dot__), to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
 
 Add the following lines to the file:
 
@@ -89,9 +89,9 @@ opera > 1
 ```
 
 This list is unrealistically inclusive, since we aim to support all browser versions above version 1.
-You can read more about [the browserlist project here](https://github.com/browserslist/browserslist).
+You can read more about [the browserslist project here](https://github.com/browserslist/browserslist).
 
-3. For all this to take effect we need to add a new entry in the `rules` node under `plugins`, in the **webpack.config.js** file:
+3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the _webpack.config.babel.js_ file:
 
 ```
 {
@@ -106,6 +106,8 @@ You can read more about [the browserlist project here](https://github.com/browse
 ```
 
 We want to transform and bundle the files in our _src_ directory, but not the _node_modules_ directory. Of course, referenced code from _node_modules_ will be included in the final bundle.
+
+4. We also need to change the name from _webpack.config.js_ to _webpack.config.babel.js_, for the debug information to be logged in the terminal.
 
 4. We can now run our build by typing `npm run build` in the terminal. This command is defined in the _package.json_ file, which in turn calls webpack.
 
