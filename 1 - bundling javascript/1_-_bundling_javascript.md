@@ -91,7 +91,7 @@ opera > 1
 This list is unrealistically inclusive, since we aim to support all browser versions above version 1.
 You can read more about [the browserslist project here](https://github.com/browserslist/browserslist).
 
-3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the **webpack.config.js** file:
+3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the _webpack.config.babel.js_ file:
 
 ```
 {
@@ -106,6 +106,8 @@ You can read more about [the browserslist project here](https://github.com/brows
 ```
 
 We want to transform and bundle the files in our _src_ directory, but not the _node_modules_ directory. Of course, referenced code from _node_modules_ will be included in the final bundle.
+
+4. We also need to change the name from _webpack.config.js_ to _webpack.config.babel.js_.
 
 4. We can now run our build by typing `npm run build` in the terminal. This command is defined in the _package.json_ file, which in turn calls webpack.
 
