@@ -107,7 +107,7 @@ You can read more about [the browserslist project here](https://github.com/brows
 
 We want to transform and bundle the files in our _src_ directory, but not the _node_modules_ directory. Of course, referenced code from _node_modules_ will be included in the final bundle.
 
-4. We also need to change the name from _webpack.config.js_ to _webpack.config.babel.js_.
+4. We also need to change the name from _webpack.config.js_ to _webpack.config.babel.js_, for the debug information to be logged in the terminal.
 
 4. We can now run our build by typing `npm run build` in the terminal. This command is defined in the _package.json_ file, which in turn calls webpack.
 
