@@ -2,7 +2,7 @@ import '@babel/polyfill';
 import './styles.scss';
 import catImg from './assets/images/cat.jpg';
 
-let name = 'Jonass';
+let name = 'Jonas';
 console.log(`Hello ${name}!`);
 
 const element = document.getElementById('placeholder');

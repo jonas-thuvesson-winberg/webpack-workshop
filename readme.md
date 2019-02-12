@@ -31,6 +31,8 @@ Feel free to skip any step you have already completed.
 
 [2 - adding HTML and styling](.%2F2%20-%20adding%20html%20and%20styling%2F2_-_adding_html_and_styling.md)
 
+[3 - Dev and prod](.%2F3%20-%20dev%20and%20prod%2F3_-_dev_and_prod.md)
+
 
 
 
