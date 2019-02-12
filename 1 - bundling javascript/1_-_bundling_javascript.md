@@ -91,7 +91,7 @@ opera > 1
 This list is unrealistically inclusive, since we aim to support all browser versions above version 1.
 You can read more about [the browserslist project here](https://github.com/browserslist/browserslist).
 
-3. For all this to take effect we need to add a new entry in the `rules` node under `plugins`, in the **webpack.config.js** file:
+3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the **webpack.config.js** file:
 
 ```
 {
