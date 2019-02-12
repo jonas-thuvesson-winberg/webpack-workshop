@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const generateHtmlPluginSetup = require('./generateHtmlPluginSetup');
 
-console.log('here');
 const htmlFiles = ['index.html', 'other.html'];
 const htmlPluginInstances = generateHtmlPluginSetup(htmlFiles);
 
@@ -12,8 +11,7 @@ const plugins = [
   new MiniCssExtractPlugin({
     filename: 'styles.[hash].css'
   })
-]
-.concat(htmlPluginInstances);
+].concat(htmlPluginInstances);
 
 module.exports = {
   mode: 'production',

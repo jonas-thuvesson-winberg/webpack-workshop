@@ -118,20 +118,18 @@ This will use the name _"styles"_, append the file hash, and then add the extens
 }
 ```
 
-First we have the handling for SCSS files. `use` is read from right to left, and the input from the previous loader is fed into the next. This tells Webpack that we want to use the `scss-loader` (turn into CSS), then the `css-loader` (make CSS available as a module) and lastly the `MiniCssExtractPlugin.loader` (extract CSS content).
+First we have the handling of SCSS files. `use` is read from right to left, and the input from the previous loader is fed into the next. This tells Webpack that we want to use the `scss-loader` (turn into CSS), then the `css-loader` (make CSS available as a module) and lastly the `MiniCssExtractPlugin.loader` (extract CSS content).
 
 We then have the image handling. This entry tells Webpack to make images available to our JavaScript by turning them into modules (using the `file-loader`). It also renames the files and adds a hash, to prevent caching (as previously discussed). We have also declared that the images should end up in a different relative output directory.
 
-4. To be able to use the static resources however, we need to reference them in out **_entry point_**. Open up _main.js_ and add the following import statements:
+4. To be able to use the static resources however, we need to reference them in our **_entry point_**. Open up _main.js_ and add the following import statements:
 
 ```
 import './styles.scss';
 import catImg from './assets/images/cat.jpg';
 ```
 
-5. It should also be noted that webpack uses something called _tree shaking_ in production mode, which will remove everything that is not referenced in CSS and JavaScript files (more about this in a later lesson).
-
-What you need to do is change one entry in _package.json_ to mark that we don't want the imports of CSS and SCSS to be removed during compilation (even though it's not used inside the JavaScript entry file):
+5. It should also be noted that webpack uses something called _tree shaking_ in production mode, which will remove everything that is not referenced in CSS and JavaScript files (more about this in a later lesson). Because of this, we need to change one entry in _package.json_, to tell Webpack that we don't want the imports of CSS and SCSS to be removed during compilation (even though these files are not explicitly used inside the JavaScript entry file):
 
 Turn
 
@@ -147,6 +145,7 @@ into
     "*.scss"
 ]
 ```
+You can read more about side effects, tree shaking and Webpack [here](https://webpack.js.org/guides/tree-shaking/).
 
 5. Open up the terminal and run `npm run build`.
 

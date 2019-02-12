@@ -10,12 +10,9 @@ const createHtmlPluginInstance = fileName => {
 };
 
 generateHtmlPluginSetup = pages => {
-  console.log('inside generate');
-
   const pluginInstances = [];
   pages.forEach(page => {
     pluginInstances.push(createHtmlPluginInstance(page));
-    console.log(page);
   });
   return pluginInstances;
 };
