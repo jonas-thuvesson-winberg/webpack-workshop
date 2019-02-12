@@ -5,7 +5,7 @@
 ## Part 1 - Creating a build
 
 1. Move to the folder **_1 - start-template_**.
-2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. Note\*\*: All the required packages have been added in advance for this workshop for convinience's sake, by using `npm install --save-dev <package-name>`.
+2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. __Note__: All the required packages have been added in advance for this workshop for convinience's sake, by using `npm install --save-dev <package-name>`.
 3. Open up the folder in _VS Code_ using "`code .`" (note that you also can do "`code </path/to/folder>`").
 
 ### Adding JavaScript Bundling
@@ -17,7 +17,7 @@ In Webpack everything revolves around bundling JavaScript code into a package. W
 Webpack uses configuration files that are, in themself, JavaScript files. We have one configuration file for Webpack in this project called `webpack.config.js`. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry), and how the javascript should be packaged using a [loader](https://webpack.js.org/concepts/#loaders).
 
 1. Open up `webpack.config.js`.
-2. Under `entry`, put `path.join(__dirname, 'src', 'main')`. This uses Node's [path](https://nodejs.org/api/path.html) module to look for **/src/main** (JavaScript module) in the application's root folder.
+2. Under `entry`, replace the empty entry with `path.join(__dirname, 'src', 'main')`. This uses Node's [path](https://nodejs.org/api/path.html) module to look for **/src/main** (JavaScript module) in the application's root folder.
 3. The [output](https://webpack.js.org/configuration/output/) node takes a configuration object. We will use the [filename](https://webpack.js.org/configuration/output/#output-filename) and [path](https://webpack.js.org/configuration/output/#output-path) options in this example. Write `filename: 'bundle.js'` inside curly brackets (`{}`). This is the name of the JavaScript bundle that is the result of the packaging process. You also should provide the output path by writing `path: path.resolve(__dirname, 'dist')`. This resolves the absolute path to dist. You can read more [here](https://webpack.js.org/configuration/output/#output-path).
    In the end you should have something like this:
 
