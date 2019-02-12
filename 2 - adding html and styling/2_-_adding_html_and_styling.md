@@ -206,10 +206,3 @@ plugins: plugins
 4. Now run `npm run build`.
 
 If you open up the _dist_ folder in the file system, you should now be able to open _index.html_ in a browser. The images work as links. The troll image is used in HTML and resolved by the `html-loader`, and the cat image is added dynamically through JavaScript, and resolved by the `file-loader`. (You can compare _index.html_ in _src_ and in _dist_)
-
----
-
-Webpack uses configuration files that are, in themself, JavaScript files.
-We have two configuration files for Webpack in this project. One is `webpack.config.common.js`
-and one is `webpack.config.prod.js`. The thought is that **common** should contain the base
-configuration (used for everything "webpack"), which can then be extended. These are then merged into one configuration during deploy. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry) and how the javascript should be packaged (using a [loader](https://webpack.js.org/concepts/#loaders)).
