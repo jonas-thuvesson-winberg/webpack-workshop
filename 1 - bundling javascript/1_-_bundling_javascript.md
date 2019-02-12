@@ -34,7 +34,7 @@ output: {
 
 Babel is a tool for compiling (or transpiling) modern JavaScript into a format compatible with different browsers and browser versions. Webpack has a loader that leverages the power of Babel.
 
-1. Babel can be configured in different ways. We are going to use a separate config file. Add a new file, _.babelrc_, to the root of the project (**_1 - start-template_**). Open it and put in the following code:
+1. Babel can be configured in different ways. We are going to use a separate config file. Add a new file, _.babelrc_ (__note the dot in the beginning of the file__), to the root of the project (**_1 - start-template_**). Open it and put in the following code:
 
 ```
 {
@@ -76,7 +76,7 @@ import "core-js/modules/es7.string.pad-end";
 
 For more info on the options used to configure Babel, see [this link](https://babeljs.io/docs/en/babel-preset-env#options).
 
-3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_, to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
+3. We will now add another config file that is a standard format that helps Babel (and other JavaScript tools), tell which browsers you want to include support for. Add another file, _.browserslistrc_ (__again, note the dot__), to the project root. In this file you can add a list of queries (requirements) that needs to be fulfilled. These are then checked against [CanIUse](https://caniuse.com/).
 
 Add the following lines to the file:
 
