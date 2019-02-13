@@ -39,4 +39,4 @@ Feel free to skip any step you have already completed.
 
 [3 - Dev and prod](.%2F3%20-%20dev%20and%20prod%2F3_-_dev_and_prod.md)
 
-[4 - Optimizations](.%2F4%20-%20Optimizations%2F4_-_optimizations.md)
+[4 - Optimizations](.%2F4%20-%20optimizations%2F4_-_optimizations.md)
