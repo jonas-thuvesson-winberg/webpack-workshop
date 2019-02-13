@@ -124,7 +124,7 @@ First we have the handling of SCSS files. `use` is read from right to left, and 
 
 We then have the image handling. This entry tells Webpack to make images available to our JavaScript by turning them into modules (using the `file-loader`). It also renames the files and adds a hash, to prevent caching (as previously discussed). We have also declared that the images should end up in a different relative output directory.
 
-4. To be able to use the static resources however, we need to reference them in our **_entry point_**. Open up _main.js_ and add the following import statements:
+4. To be able to use the static resources however, we need to reference them in our **_entry point_**. Open up _main.js_ (in the **_src_** folder) and add the following import statements:
 
 ```
 import './styles.scss';
