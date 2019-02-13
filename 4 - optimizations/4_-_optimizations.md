@@ -5,7 +5,9 @@ When you run Webpack in `mode: 'production'`, it will do a lot of optimizations 
 1. We have one Webpack configuration (that does not declare `mode`). If you open up _package.config_, you will see that we have two `scripts`; `build` and `build-dev`. The only difference is the `--mode` flag. This let's us control the output.
 
 2. run `npm install` in the root directory (**_/4 - Optimizations/2 - end-result_**).
-3. If you open _main.js_ and _other.js_ in **_src_**, you will see that _main.js_ imports the function `foo`, but not `bar`. Run `npm run build-dev`.
+3. If you open _main.js_ and _other.js_ in **_src_**, you will see that _main.js_ imports the function `foo`, but not `bar`. 
+
+Run `npm run build-dev`.
 
 4. Open the file _bundle.&lt;hash&gt;.js_ in the **_/dist_** folder.
 5. Search for "I'm used". You should get a match. Then search for "I'm not used". You should get a match here as well.
