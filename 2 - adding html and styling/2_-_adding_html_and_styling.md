@@ -96,7 +96,7 @@ new MiniCssExtractPlugin({
 
 This will use the name _"styles"_, append the file hash, and then add the extension _"css"_.'
 
-4. We also need to add the following under the `rules` node:
+4. We also need to add the following in the array under the `modules`/`rules` node:
 
 ```
  {
