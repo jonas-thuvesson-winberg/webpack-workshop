@@ -151,7 +151,7 @@ You can read more about side effects, tree shaking and Webpack [here](https://we
 
 5. Open up the terminal and run `npm run build`.
 
-You should now have a `.css` file, and a folder _img_ with the cat image, in the _dist_ directory.¨
+You should now have a `.css` file, and a folder **_img_** with the cat image, in the **_dist_** directory.
 
 ### Adding HTML
 
