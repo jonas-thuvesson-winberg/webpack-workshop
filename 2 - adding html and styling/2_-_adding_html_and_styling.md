@@ -194,7 +194,7 @@ with
 plugins: plugins
 ```
 
-3. The HtmlWebpackPlugin will inject the JavaScript and CSS into our HTML files at build time by default. It will not, however resolve any referenced images. Because of this we want to add the `html-loader` to the `rules` node:
+3. The HtmlWebpackPlugin will inject the JavaScript and CSS into our HTML files at build time by default. It will not, however resolve any referenced images. Because of this we want to add the `html-loader` to the the array in the `rules` node:
 
 ```
 {
