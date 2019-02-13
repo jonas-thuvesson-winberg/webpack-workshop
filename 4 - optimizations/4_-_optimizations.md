@@ -15,4 +15,4 @@ Run `npm run build-dev` in the terminal.
 7. Once again, open the file _bundle.&lt;hash&gt;.js_ in the **_/dist_** folder. This time you will see that it has been minified; there are no spaces in the script.
 8. Search for "I'm used". You should get a match. Then search for "I'm not used". You should **NOT** get a match this time.
 
-What has happened is that Webpack has checked which parts of your JavaScript that is not used, based on what is imported or not.
+What has happened is that Webpack has checked which parts of your JavaScript that is not used, based on what is imported or not.  It then removes unused imports; this is the tree shaking process. The only exception to this rule is if a file is declared as having *"side effects"*, in the *package.json* file (discussed in previous lesson); then it will be bundled anyway.
