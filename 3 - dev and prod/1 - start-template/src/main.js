@@ -10,5 +10,3 @@ if (element) {
   element.innerHTML = "<img src='" + catImg + "'/>";
 }
 
-throw Error('error');
-
