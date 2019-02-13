@@ -73,6 +73,8 @@ new CleanWebpackPlugin(['dist'])
 clean-webpack-plugin: C:\Programming\JavaScript\webpack-workshop\2 - adding html and styling\1 - start-template\dist has been removed.
 ```
 
+If you look in the _**dist**_ folder you'll see we only have the latest bundle file.
+
 ### Adding resources: CSS and images
 
 1. Open up the file _webpack.config.js_ once more.
