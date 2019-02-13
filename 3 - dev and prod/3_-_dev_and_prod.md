@@ -15,7 +15,7 @@ If you look in the common config you will see that it is set to development. Thi
 We will now create a new config file that inherits common.
 
 1. Create a new file **webpack.config.dev.js**. This will be our development config.
-2. Add the following code:
+2. Add the following code, and save the file:
 
 ```
 const merge = require('webpack-merge');
@@ -29,8 +29,6 @@ module.exports = merge(common, {
   }
 });
 ```
-
-`mode: development`
 
 `devtool: 'source-map'`, will help us with debugging, since it will relate (map) where an error occured in your bundled JavaScript code, based on your "uncompiled" JavaScript code (that is more "human readable"), or tracing where a log message was issued etc. You can read more about the [devtool here](https://webpack.js.org/configuration/devtool/#devtool).
 
