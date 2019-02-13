@@ -43,7 +43,7 @@ Webpack has several built in functions to reference different aspects of a filen
 4. run `npm run build`.
    If you look in the _**dist**_ folder you'll see a file with a hash in the file name.
 
-5. Open up _main.js_ and change the variable `name` to your name, and save the file.
+5. Open up _main.js_ in the _**src**_ folder, and change the variable `name` to your name, and save the file.
 6. Run `npm run build` again.
    Notice that we now have two bundle.js files. This is a problem.
 
