@@ -7,7 +7,7 @@ When you run Webpack in `mode: 'production'`, it will do a lot of optimizations 
 2. run `npm install` in the root directory (**_/4 - Optimizations/2 - end-result_**).
 3. If you open _main.js_ and _other.js_ in **_src_**, you will see that _main.js_ imports the function `foo`, but not `bar`. 
 
-Run `npm run build-dev`.
+Run `npm run build-dev` in the terminal.
 
 4. Open the file _bundle.&lt;hash&gt;.js_ in the **_/dist_** folder.
 5. Search for "I'm used". You should get a match. Then search for "I'm not used". You should get a match here as well.
