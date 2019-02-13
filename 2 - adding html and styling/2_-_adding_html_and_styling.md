@@ -204,4 +204,4 @@ plugins: plugins
 
 4. Now run `npm run build`.
 
-If you open up the _dist_ folder in the file system, you should now be able to open _index.html_ in a browser. The images work as links. The troll image is used in HTML and resolved by the `html-loader`, and the cat image is added dynamically through JavaScript, and resolved by the `file-loader`. (You can compare _index.html_ in _src_ and in _dist_)
+If you open up the _dist_ folder in the file system, you should now be able to open _index.html_ in a browser. The images work as links. The dog image is used in HTML and resolved by the `html-loader`, and the cat image is added dynamically through JavaScript, and resolved by the `file-loader`. (You can compare _index.html_ in _src_ and in _dist_)
