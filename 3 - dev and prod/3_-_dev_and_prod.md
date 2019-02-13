@@ -15,7 +15,7 @@ If you look in the common config you will see that it is set to development. Thi
 We will now create a new config file that inherits common.
 
 1. Create a new file **webpack.config.dev.js**. This will be our development config.
-2. Add the following code:
+2. Add the following code, and save the file:
 
 ```
 const merge = require('webpack-merge');
