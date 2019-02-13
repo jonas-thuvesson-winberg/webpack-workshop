@@ -30,8 +30,6 @@ module.exports = merge(common, {
 });
 ```
 
-`mode: development`
-
 `devtool: 'source-map'`, will help us with debugging, since it will relate (map) where an error occured in your bundled JavaScript code, based on your "uncompiled" JavaScript code (that is more "human readable"), or tracing where a log message was issued etc. You can read more about the [devtool here](https://webpack.js.org/configuration/devtool/#devtool).
 
 `devServer` is a tool for running the live reloading development server. Live reloading means that the page will refresh each time a file changes in our project. You can also enable Hot Module Reloading/Replacement (HMR), which will allow JavaScript code (modules) to be replaced, without the whole page refreshing. This keeps your state in the current browser session. HMR is harder to set up and is outside the scope of this course. You can read more about the [dev server, HMR and much more here](https://webpack.js.org/configuration/dev-server/).
