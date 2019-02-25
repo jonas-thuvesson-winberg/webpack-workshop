@@ -5,14 +5,14 @@
 ## Part 1 - Creating a build
 
 1. Move to the folder **_1 - start-template_**.
-2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. __Note__: All the required packages have been added in advance for this workshop for convinience's sake, by using `npm install --save <package-name>`.
+2. Run "`npm install`". This uses the packages defined under `devDependencies` in **_package.json_**. __Note__: All the required packages have been added in advance for this workshop for convenience's sake, by using `npm install --save <package-name>`.
 3. Open up the folder in _VS Code_ using "`code .`" (note that you also can do "`code </path/to/folder>`").
 
 ### Adding JavaScript Bundling
 
 #### Basic bundling
 
-In Webpack everything revolves around bundling JavaScript code into a package. We need an [entrypoint](https://webpack.js.org/concepts/#entry) for the code we want to bundle. In our case it is `index.js`, under **_src_**.
+In Webpack everything revolves around bundling JavaScript code into a package. We need an [entrypoint](https://webpack.js.org/concepts/#entry) for the code we want to bundle. In our case it is `main.js`, under **_src_**.
 
 Webpack uses configuration files that are, in themself, JavaScript files. We have one configuration file for Webpack in this project called `webpack.config.js`. We need to tell webpack the [entrypoint](https://webpack.js.org/concepts/#entry), and how the javascript should be packaged using a [loader](https://webpack.js.org/concepts/#loaders).
 
@@ -91,7 +91,7 @@ opera > 1
 This list is unrealistically inclusive, since we aim to support all browser versions above version 1.
 You can read more about [the browserslist project here](https://github.com/browserslist/browserslist).
 
-3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the _webpack.config.babel.js_ file:
+3. For all this to take effect we need to add a new entry _inside_ the empty array in the `rules` node (under `module`), in the _webpack.config.js_ file:
 
 ```
 {
